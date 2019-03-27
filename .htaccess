@@ -1,7 +1,5 @@
 RewriteEngine On    # Turn on the rewriting engine
  
+
+RewriteRule ^api([0-9a-zA-Z_-]*)$ project/api.php [NC,L]
 RewriteRule ^api/([0-9a-zA-Z_-]*)$ project/read_one.php?id=$1 [NC,L]
-RewriteRule ^api([0-9a-zA-Z_-]*)$ project/read.php [NC,L]
-RewriteRule ^create([0-9a-zA-Z_-]*)$ project/create.php [NC,L]
-RewriteRule ^update([0-9a-zA-Z_-]*)$ project/update.php [NC,L]
-RewriteRule ^delete([0-9a-zA-Z_-]*)$ project/delete.php [NC,L]
