@@ -22,7 +22,7 @@ $data = json_decode(file_get_contents("php://input"));
 
  
 // set ID property of project to be edited
-$project->id = $data->id;
+$project->id = isset($_GET['id']) ? $_GET['id'] : die();
 // set ID property of record to read
 //$project->id = isset($_GET['id']) ? $_GET['id'] : die();
 

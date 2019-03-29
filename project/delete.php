@@ -18,10 +18,12 @@ $db = $database->getConnection();
 $project = new project($db);
  
 // get project id
-$data = json_decode(file_get_contents("php://input"));
- var_dump($data);
+// $data = json_decode(file_get_contents("php://input"));
+//  var_dump($data);
+isset($_GET['id']) ? $_GET['id'] : die();
 // set product id to be deleted
-$project->id = $data->id;
+//$project->id = $data->id;
+$project->id = isset($_GET['id']) ? $_GET['id'] : die();
  
 // delete the project
 if($project->delete()){
