@@ -1,34 +1,30 @@
 <?php
-// required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
- 
-// include database and object files
-include_once '../config/database.php';
-include_once '../objects/project.php';
- 
-// instantiate database and product object
+
+require_once "../objects/project.php";
+require_once "../objects/database.php";
+
+
 $database = new Database();
-$db = $database->getConnection();
- 
-// initialize object
-$project = new Project($db);
- 
-// query products
-$stmt = $project->read();
-$num = $stmt->rowCount();
- 
-// check if more than 0 record found
+
+$project = new Project($database->getConnection());
+
+$read = $project->read();
+$num = $read->rowCount();
+
 if($num>0){
  
     // products array
     $projects_arr=array();
-    $projects_arr["records"]=array();
+    
  
     // retrieve our table contents
     // fetch() is faster than fetchAll()
     // http://stackoverflow.com/questions/2770630/pdofetchall-vs-pdofetch-in-a-loop
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    while ($row = $read->fetch(PDO::FETCH_ASSOC)){
+
+        
         // extract row
         // this will make $row['name'] to
         // just $name only
@@ -47,7 +43,7 @@ if($num>0){
             
         );
  
-        array_push($projects_arr["records"], $project_item);
+        array_push($projects_arr, $project_item);
     }
  
     // set response code - 200 OK
@@ -70,3 +66,5 @@ else{
 
 
 
+
+?>

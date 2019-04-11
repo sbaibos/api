@@ -1,47 +1,34 @@
 <?php
-// required headers
+
+//required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: DELETE, OPTIONS");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
- 
-// include database and object file
-include_once '../config/database.php';
-include_once '../objects/project.php';
- 
+
+// require include database and object file
+require_once "../objects/project.php";
+require_once "../objects/database.php";
+
 // get database connection
 $database = new Database();
-$db = $database->getConnection();
- 
-// prepare product object
-$project = new project($db);
- 
+// prepare project object
+$project = new Project($database->getConnection());
+
 // get project id
-// $data = json_decode(file_get_contents("php://input"));
-//  var_dump($data);
-isset($_GET['id']) ? $_GET['id'] : die();
-// set product id to be deleted
-//$project->id = $data->id;
 $project->id = isset($_GET['id']) ? $_GET['id'] : die();
- 
-// delete the project
-if($project->delete()){
- 
+// set project id to be deleted
+if ($project->delete()) {
+
     // set response code - 200 ok
     http_response_code(200);
- 
+
     // tell the user
     echo json_encode(array("message" => "project was deleted."));
-}
- 
-// if unable to delete the project
-else{
- 
-    // set response code - 503 service unavailable
+} else {
+
     http_response_code(503);
- 
-    // tell the user
-    echo json_encode(array("message" => "Unable to delete project."));
+
+    echo json_encode(array("message" => "Unable to delete project"));
 }
-?>
