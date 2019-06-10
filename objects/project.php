@@ -39,10 +39,11 @@ class Project
     // read project by id
     function read_by_id()
     {
-
+        //query with positional parameters
         $query = "SELECT id, name, employer, dateStartEnd, description, analyticalDescription, siteUrl, photo, technologiesUsed, created FROM projects WHERE id = ? LIMIT
         0,1";
         $prepared = $this->conn->prepare($query);
+       
         $prepared->bindParam(1, $this->id);
         $prepared->execute();
 
@@ -53,9 +54,10 @@ class Project
     function delete()
     {
 
-
+        //query with positional parameters
         $query = "DELETE from projects where id =?";
         $prepared = $this->conn->prepare($query);
+       
         $prepared->bindParam(1, $this->id);
 
         if ($prepared->execute()) {
@@ -71,7 +73,7 @@ class Project
     function add()
     {
 
-
+        //query with named parameters
         $query = "INSERT INTO projects SET name=:name, employer=:employer, dateStartEnd=:dateStartEnd, description=:description, analyticalDescription=:analyticalDescription, siteUrl=:siteUrl, photo=:photo, technologiesUsed=:technologiesUsed, created=:created";
         $prepared = $this->conn->prepare($query);
 
@@ -86,7 +88,7 @@ class Project
         $this->created = htmlspecialchars(strip_tags($this->created));
 
 
-        // bind values
+        // bind values 
         $prepared->bindParam(":name", $this->name);
         $prepared->bindParam(":employer", $this->employer);
         $prepared->bindParam(":dateStartEnd", $this->dateStartEnd);
@@ -130,7 +132,7 @@ class Project
         $this->siteUrl = htmlspecialchars(strip_tags($this->siteUrl));
         $this->photo = htmlspecialchars(strip_tags($this->photo));
         $this->technologiesUsed = htmlspecialchars(strip_tags($this->technologiesUsed));
-//bind
+// bind values
         $prepared->bindParam(':id', $this->id);
         $prepared->bindParam(':name', $this->name);
         $prepared->bindParam(':employer', $this->employer);
