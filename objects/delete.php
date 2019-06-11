@@ -8,8 +8,8 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 // require include database and object file
-require_once "../objects/project.php";
-require_once "../objects/database.php";
+require_once "../classes/project.php";
+require_once "../classes/database.php";
 
 // get database connection
 $database = new Database();

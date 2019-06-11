@@ -24,7 +24,7 @@ include_once 'read_one.php';
 
 } else if ($request_method === 'post'){
 
-    include_once 'create.php';
+    include_once 'add.php';
 } else if ($request_method === 'put') {
 
     include_once 'update.php';

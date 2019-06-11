@@ -3,8 +3,8 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
-require_once "../objects/project.php";
-require_once "../objects/database.php";
+require_once "../classes/project.php";
+require_once "../classes/database.php";
 
  $id;
 

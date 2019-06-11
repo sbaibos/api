@@ -1,7 +1,7 @@
 <?php
 
-require_once "../objects/project.php";
-require_once "../objects/database.php";
+require_once "../classes/project.php";
+require_once "../classes/database.php";
 
 $database =  new Database();
 // instantiate product object with database connection as argument
