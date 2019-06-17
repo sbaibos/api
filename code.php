@@ -42,3 +42,20 @@ INSERT INTO `myprojects7`.`projects` (`id`, `name`, `employer`, `dateStartEnd`, 
       "siteUrl": "http://www.sbaibos.com/patrio2/",
       "photo": "http://sbaibos.com2/img/patrio_main.jpg",
       "technologiesUsed": "2Drupal 6, Drupal tools, CSS" }
+
+
+      //create user
+      {
+        "full_name": "Sotiris Baibos2",
+        "username": "sbaibos2",
+        "password": "1234567", 
+        "created": "2018-08-01 00:35:07"
+      }
+
+
+      // update user
+      {
+        "full_name": "Sotiris Baibos3",
+        "username": "sbaibos2",
+        "password": "1234567"
+      }

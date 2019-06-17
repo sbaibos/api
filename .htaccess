@@ -10,3 +10,10 @@ RewriteRule ^api/([0-9a-zA-Z_-]*)$ objects/read_by_id.php?id=$1 [NC,L]
 
 RewriteRule ^delete/([0-9a-zA-Z_-]*)$ objects/delete.php?id=$1 [NC,L]
 RewriteRule ^update/([0-9a-zA-Z_-]*)$ objects/update.php?id=$1 [NC,L]
+
+RewriteRule ^user([0-9a-zA-Z_-]*)$ objects/user_api.php [NC,L]
+RewriteRule ^user/([0-9a-zA-Z_-]*)$ objects/read_user_by_id.php?id=$1 [NC,L]
+
+
+RewriteRule ^user_delete/([0-9a-zA-Z_-]*)$ objects/delete_user.php?id=$1 [NC,L]
+RewriteRule ^user_update/([0-9a-zA-Z_-]*)$ objects/update_user.php?id=$1 [NC,L]
