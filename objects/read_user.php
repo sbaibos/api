@@ -32,7 +32,7 @@ if($num>0){
  
         $user_item=array(
             "id" => $id,
-            "full_name" => $full_name,
+            "fullName" => $fullName,
 			"username" => $username,
 			"password"=>$password
              );

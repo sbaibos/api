@@ -46,7 +46,7 @@ INSERT INTO `myprojects7`.`projects` (`id`, `name`, `employer`, `dateStartEnd`, 
 
       //create user
       {
-        "full_name": "Sotiris Baibos2",
+        "fullName": "Sotiris Baibos2",
         "username": "sbaibos2",
         "password": "1234567", 
         "created": "2018-08-01 00:35:07"
@@ -55,7 +55,7 @@ INSERT INTO `myprojects7`.`projects` (`id`, `name`, `employer`, `dateStartEnd`, 
 
       // update user
       {
-        "full_name": "Sotiris Baibos3",
+        "fullName": "Sotiris Baibos3",
         "username": "sbaibos2",
         "password": "1234567"
       }

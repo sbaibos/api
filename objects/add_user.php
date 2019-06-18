@@ -12,14 +12,14 @@ $data = json_decode(file_get_contents(("php://input")));
 // var_dump($data) ;
 // make sure data is not empty
 if (
-    !empty($data->full_name) &&
+    !empty($data->fullName) &&
     !empty($data->username) &&
     !empty($data->password)
     
 ) {
 
     // set product property values
-    $user->full_name = $data->full_name;
+    $user->fullName = $data->fullName;
     $user->username = $data->username;
     $user->password = $data->password;
     $user->created = date('Y-m-d H:i:s');

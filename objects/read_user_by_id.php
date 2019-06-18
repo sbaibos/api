@@ -25,7 +25,7 @@ $row = $read_by_id->fetch(PDO::FETCH_ASSOC);
 //extract($row);
         // set values to object properties
          $user->id = $row['id'];
-         $user->full_name = $row['full_name'];
+         $user->fullName = $row['fullName'];
          $user->username = $row['username'];
          $user->password = $row['password'];
         
@@ -37,7 +37,7 @@ if($user->username!=null){
 $user_arr = array(
 
     "id"=> $user->id,
-    "full_name"=> $user->full_name,
+    "fullName"=> $user->fullName,
     "username"=> $user->username,
     "password"=> $user->password 
 

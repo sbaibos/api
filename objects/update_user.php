@@ -12,7 +12,7 @@ $user->id  = isset($_GET['id']) ? $_GET['id'] : die();
 
 $data = json_decode(file_get_contents("php://input"));
 
-$user->full_name = $data->full_name;
+$user->fullName = $data->fullName;
 $user->username = $data->username;
 $user->password = $data->password;
 

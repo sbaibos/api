@@ -7,7 +7,7 @@ class User
 
 // object properties
     public $id;
-    public $full_name;
+    public $fullName;
     public $username;
     public $password;
     public $created;
@@ -35,7 +35,7 @@ class User
     function read_by_id()
     {
         //query with positional parameters
-        $query = "SELECT id, full_name, username, password, created FROM users WHERE id = ? LIMIT
+        $query = "SELECT id, fullName, username, password, created FROM users WHERE id = ? LIMIT
         0,1";
         $prepared = $this->conn->prepare($query);
        
@@ -69,17 +69,17 @@ class User
     {
 
         //query with named parameters
-        $query = "INSERT INTO users SET full_name=:full_name, username=:username, password=:password, created=:created";
+        $query = "INSERT INTO users SET fullName=:fullName, username=:username, password=:password, created=:created";
         $prepared = $this->conn->prepare($query);
 
-        $this->full_name = htmlspecialchars(strip_tags($this->full_name));
+        $this->fullName = htmlspecialchars(strip_tags($this->fullName));
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->password = htmlspecialchars(strip_tags($this->password));         
         $this->created = htmlspecialchars(strip_tags($this->created));
 
 
         // bind values 
-        $prepared->bindParam(":full_name", $this->full_name);
+        $prepared->bindParam(":fullName", $this->fullName);
         $prepared->bindParam(":username", $this->username);
         $prepared->bindParam(":password", $this->password);       
         $prepared->bindParam(":created", $this->created);
@@ -97,7 +97,7 @@ class User
     function update()
     {
 
-        $query = "UPDATE users SET full_name=:full_name, username=:username, password=:password
+        $query = "UPDATE users SET fullName=:fullName, username=:username, password=:password
     
                 WHERE id = :id";
 
@@ -106,13 +106,13 @@ class User
 
         // sanitize
         $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->full_name = htmlspecialchars(strip_tags($this->full_name));
+        $this->fullName = htmlspecialchars(strip_tags($this->fullName));
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->password = htmlspecialchars(strip_tags($this->password));         
         
 // bind values
         $prepared->bindParam(':id', $this->id);
-        $prepared->bindParam(":full_name", $this->full_name);
+        $prepared->bindParam(":fullName", $this->fullName);
         $prepared->bindParam(":username", $this->username);
         $prepared->bindParam(":password", $this->password); 
 
